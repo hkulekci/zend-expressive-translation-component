@@ -3,7 +3,7 @@
 Use composer to install
 
 ```
-composer require hkulekci/zend-expressive-translation-component
+composer require hkulekci/translation-component
 ```
 
 And put the `\TranslationComponent\ModuleConfig::class` in your `config.php` file.
