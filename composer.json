@@ -1,5 +1,5 @@
 {
-    "name": "hkulekci/zend-expressive-translation-component",
+    "name": "hkulekci/translation-component",
     "description": "Zend Expressive Translation Component - Note : Working with twig only for now",
     "type": "library",
     "license": "MIT",
