@@ -1,0 +1,40 @@
+#!/usr/bin/env php
+<?php
+
+require __DIR__ . '/../vendor/autoload.php';
+
+use Symfony\Component\Console\Application;
+use Zend\ServiceManager\ServiceManager;
+
+
+use Zend\ConfigAggregator\ArrayProvider;
+use Zend\ConfigAggregator\ConfigAggregator;
+use Zend\ConfigAggregator\PhpFileProvider;
+
+// To enable or disable caching, set the `ConfigAggregator::ENABLE_CACHE` boolean in
+// `config/autoload/local.php`.
+$cacheConfig = [
+    'config_cache_path' => 'data/cache/config-cache.php',
+];
+
+$aggregator = new ConfigAggregator([
+    \Zend\Expressive\Session\Ext\ConfigProvider::class,
+    \Zend\Expressive\Session\ConfigProvider::class,
+    \Zend\Expressive\Twig\ConfigProvider::class,
+    TranslationComponent\ModuleConfig::class,
+], $cacheConfig['config_cache_path']);
+
+// Load configuration
+$config = $aggregator->getMergedConfig();
+$dependencies = $config['dependencies'];
+$dependencies['services']['config'] = $config;
+
+$container   = new ServiceManager($dependencies);
+$application = new Application('Application console');
+
+$commands = $container->get('config')['console']['commands'] ?? [];
+foreach ($commands as $command) {
+    $application->add($container->get($command));
+}
+
+$application->run();

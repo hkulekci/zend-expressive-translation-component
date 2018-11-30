@@ -1,0 +1,29 @@
+{
+    "name": "hkulekci/zend-expressive-translation-component",
+    "description": "Zend Expressive Translation Component - Note : Working with twig only for now",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Haydar KULEKCI",
+            "email": "haydarkulekci@gmail.com"
+        }
+    ],
+    "require": {
+        "php": "^7.1",
+        "gettext/gettext": "^4.4",
+        "twig/extensions": "^1.5",
+        "zendframework/zend-expressive-session": "^1.0",
+        "zendframework/zend-expressive-session-ext": "^1.0",
+        "zendframework/zend-expressive-twigrenderer": "^2.0",
+        "symfony/console": "^4.2",
+        "zendframework/zend-diactoros": "^2.0",
+        "zendframework/zend-servicemanager": "^3.3",
+        "zendframework/zend-config-aggregator": "^1.1"
+    },
+    "autoload": {
+        "psr-4": {
+            "TranslationComponent\\": "src/"
+        }
+    }
+}
