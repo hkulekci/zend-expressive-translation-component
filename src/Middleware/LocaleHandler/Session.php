@@ -5,7 +5,7 @@
  * @since     Nov 2018
  * @author    Haydar KULEKCI <haydarkulekci@gmail.com>
  */
-namespace TranslationComponent\Middleware\Handler;
+namespace TranslationComponent\Middleware\LocaleHandler;
 
 use Psr\Http\Message\RequestInterface;
 use Zend\Expressive\Session\SessionInterface;

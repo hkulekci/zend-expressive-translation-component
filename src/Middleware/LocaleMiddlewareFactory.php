@@ -1,6 +1,6 @@
 <?php
 /**
- * Translation Middleware
+ * Translation Locale Middleware
  *
  * @since     Sep 2016
  * @author    Haydar KULEKCI <haydarkulekci@gmail.com>
@@ -9,13 +9,13 @@
 namespace TranslationComponent\Middleware;
 
 use Psr\Container\ContainerInterface;
-use TranslationComponent\Middleware\Handler\HandlerInterface;
+use TranslationComponent\Middleware\LocaleHandler\HandlerInterface;
 
-class TranslationMiddlewareFactory
+class LocaleMiddlewareFactory
 {
     public function __invoke(ContainerInterface $container)
     {
-        return new TranslationMiddleware(
+        return new LocaleMiddleware(
             $container,
             $container->get(HandlerInterface::class)
         );

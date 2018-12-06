@@ -1,6 +1,6 @@
 <?php
 /**
- * Translation Middleware
+ * Translation Locale Middleware
  *
  * @since     Sep 2016
  * @author    Haydar KULEKCI <haydarkulekci@gmail.com>
@@ -13,10 +13,10 @@ use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
 use Psr\Http\Server\MiddlewareInterface;
 use Psr\Http\Server\RequestHandlerInterface;
-use TranslationComponent\Middleware\Handler\HandlerInterface;
+use TranslationComponent\Middleware\LocaleHandler\HandlerInterface;
 use TranslationComponent\Translator\Translator;
 
-class TranslationMiddleware implements MiddlewareInterface
+class LocaleMiddleware implements MiddlewareInterface
 {
     protected $handler;
     protected $container;

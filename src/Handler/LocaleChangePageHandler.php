@@ -7,7 +7,7 @@ namespace TranslationComponent\Handler;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 use Psr\Http\Server\RequestHandlerInterface;
-use TranslationComponent\Middleware\Handler\HandlerInterface;
+use TranslationComponent\Middleware\LocaleHandler\HandlerInterface;
 use TranslationComponent\Service\Configuration;
 use Zend\Diactoros\Response\RedirectResponse;
 use Zend\Expressive\Session\SessionInterface;

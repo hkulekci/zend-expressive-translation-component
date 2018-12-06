@@ -9,7 +9,8 @@ return [
         'folders' => [
             ['src/', '/.*\.php/'],
             ['src/', '/.*\.twig/'],
-        ]
+        ],
+        'handler' => \TranslationComponent\Middleware\LocaleHandler\Session::class,
     ],
     'twig' => [
         'extensions' => [
@@ -32,13 +33,13 @@ return [
             \TranslationComponent\Extension\Translation::class,
         ],
         'factories' => [
-            \TranslationComponent\Handler\LocaleChangePageHandler::class     => \TranslationComponent\Handler\LocaleChangePageHandlerFactory::class,
-            \TranslationComponent\Middleware\Handler\HandlerInterface::class => \TranslationComponent\Middleware\Handler\HandlerFactory::class,
+            \TranslationComponent\Handler\LocaleChangePageHandler::class           => \TranslationComponent\Handler\LocaleChangePageHandlerFactory::class,
+            \TranslationComponent\Middleware\LocaleHandler\HandlerInterface::class => \TranslationComponent\Middleware\LocaleHandler\HandlerFactory::class,
 
-            \TranslationComponent\Service\Scanner::class                  => \TranslationComponent\Service\ScannerFactory::class,
-            \TranslationComponent\Command\ScannerCommand::class           => \TranslationComponent\Command\ScannerCommandFactory::class,
-            \TranslationComponent\Service\Configuration::class            => \TranslationComponent\Service\ConfigurationFactory::class,
-            \TranslationComponent\Middleware\TranslationMiddleware::class => \TranslationComponent\Middleware\TranslationMiddlewareFactory::class,
+            \TranslationComponent\Service\Scanner::class             => \TranslationComponent\Service\ScannerFactory::class,
+            \TranslationComponent\Command\ScannerCommand::class      => \TranslationComponent\Command\ScannerCommandFactory::class,
+            \TranslationComponent\Service\Configuration::class       => \TranslationComponent\Service\ConfigurationFactory::class,
+            \TranslationComponent\Middleware\LocaleMiddleware::class => \TranslationComponent\Middleware\LocaleMiddlewareFactory::class,
         ]
     ],
     'console' => [
@@ -49,7 +50,7 @@ return [
     'middleware_pipeline' => [
         'always' => [
             'middleware' => [
-                \TranslationComponent\Middleware\TranslationMiddleware::class
+                \TranslationComponent\Middleware\LocaleMiddleware::class
             ],
         ],
     ],
